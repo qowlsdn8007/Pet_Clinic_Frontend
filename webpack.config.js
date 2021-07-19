@@ -27,6 +27,10 @@ module.exports = {
         test: /\.tsx?$/,
         use: ['babel-loader', 'ts-loader'],
       },
+      {
+        test: /\.(css)$/, // 순수한 CSS 파일과 구분하고 싶다면 pcss를 사용해도 좋다. 대개 그냥 .css 확장자를 사용한다.
+        use: ["style-loader", "css-loader"],
+      },
     ],
   },
 
