@@ -1,50 +1,74 @@
 import { useState } from "react";
 import { useHistory, Link } from "react-router-dom";
+import { Form, Input, Button, Checkbox } from "antd";
 
 type LoginFormProps = {
-  onSubmit: (form: { id: string; pw: string }) => void;
+  id: string;
+  pw: string;
 };
 
 function Login() {
   const history = useHistory();
 
-  const [form, setForm] = useState({
-    id: "",
-    pw: "",
-  });
-
-  const { id, pw } = form;
-
-  function goToMain(): void {
+  function goToMain(values: LoginFormProps): void {
     // history.push("/") //go To Main Page
   }
 
-  function onLogin(form: { id: string; pw: string }): void {
-    console.log(form);
-    // history.push("/") //go To Main Page
+  function goToSignUp(): void {
+    history.push("/sign-up"); //go To Main Page
   }
 
-  function onChange(event: React.ChangeEvent<HTMLInputElement>): void {
-    const { name, value } = event.target;
-    console.log(`event.target : ${name} ${value}`);
-    setForm({ ...form, [name]: value });
-  }
+  const onFinish = (values: LoginFormProps) => {
+    console.log("Success:", values);
+    goToMain(values);
+  };
 
-  function handleLogin(event: React.FormEvent<HTMLFormElement>): void {
-    event?.preventDefault();
-    console.log(`Form: ${form.id} ${form.pw}`);
-    onLogin(form);
-  }
+  const onFinishFailed = (errorInfo: any) => {
+    console.log("Failed:", errorInfo);
+  };
 
   return (
     <div>
-      <form onSubmit={handleLogin}>
-        <label>Sign In</label>
-        <input name="id" value={id} onChange={onChange} />
-        <input name="pw" value={pw} onChange={onChange} />
-        <button type="submit">로그인</button>
-      </form>
-      <Link to="/sign-up">forgot password?</Link>
+      {" "}
+      <Form
+        name="basic"
+        labelCol={{ span: 8 }}
+        wrapperCol={{ span: 16 }}
+        // initialValues={{ remember: true }}
+        onFinish={onFinish}
+        onFinishFailed={onFinishFailed}
+      >
+        <Form.Item
+          label="id"
+          name="id"
+          rules={[{ required: true, message: "id를 입력해주세요!" }]}
+        >
+          <Input />
+        </Form.Item>
+
+        <Form.Item
+          label="password"
+          name="password"
+          rules={[{ required: true, message: "password를 입력해주세요!" }]}
+        >
+          <Input.Password />
+        </Form.Item>
+
+        <Form.Item
+          name="remember"
+          valuePropName="checked"
+          wrapperCol={{ offset: 8, span: 16 }}
+        >
+          {/* <Checkbox>Remember me</Checkbox> */}
+          <Button type="link">회원가입</Button>
+        </Form.Item>
+
+        <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+          <Button type="primary" htmlType="submit">
+            Submit
+          </Button>
+        </Form.Item>
+      </Form>
     </div>
   );
 }
