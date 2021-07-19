@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useHistory, Link } from "react-router-dom";
-import { Form, Input, Button, Checkbox } from "antd";
+import { Form, Input, Button, Checkbox, Radio } from "antd";
 
 type LoginFormProps = {
   id: string;
@@ -9,6 +9,13 @@ type LoginFormProps = {
 
 function Login() {
   const history = useHistory();
+
+  const [value, setValue] = useState(1);
+
+  const onChange = (e: any) => {
+    console.log("radio checked", e.target.value);
+    setValue(e.target.value);
+  };
 
   function goToMain(values: LoginFormProps): void {
     // history.push("/") //go To Main Page
@@ -45,27 +52,31 @@ function Login() {
         >
           <Input />
         </Form.Item>
-
         <Form.Item
           label="password"
           name="password"
           rules={[{ required: true, message: "password를 입력해주세요!" }]}
         >
           <Input.Password />
-        </Form.Item>
-
+          <Radio.Group onChange={onChange} value={value}>
+            <Radio value={1}>수의사</Radio>
+            <Radio value={2}>동물 병원 직원</Radio>
+            <Radio value={3}>반려동물 보호자</Radio>
+          </Radio.Group>
+        </Form.Item>{" "}
         <Form.Item
           name="remember"
           valuePropName="checked"
           wrapperCol={{ offset: 8, span: 16 }}
         >
           {/* <Checkbox>Remember me</Checkbox> */}
-          <Button type="link">회원가입</Button>
+          <Button type="link" onClick={goToSignUp}>
+            회원가입
+          </Button>
         </Form.Item>
-
         <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
           <Button type="primary" htmlType="submit">
-            Submit
+            로그인
           </Button>
         </Form.Item>
       </Form>
