@@ -1,19 +1,23 @@
-import { useState } from "react";
-import { useHistory } from "react-router-dom";
-import { Form, Button, Radio } from "antd";
+import { useState, Props } from 'react';
+import { useHistory } from 'react-router-dom';
+import { Form, Button, Radio, RadioChangeEvent } from 'antd';
 
-function SignUp() {
+type setProps = {
+  setType: (e: RadioChangeEvent) => number;
+};
+
+function SignUp(props: setProps) {
   const history = useHistory();
-  const [value, setValue] = useState(1);
+  const [value, setValue] = useState<number>(1);
 
-  const onChange = (e: any) => {
-    console.log("radio checked", e.target.value);
+  const onChange = (e: RadioChangeEvent) => {
+    console.log('radio checked', e.target.value);
     setValue(e.target.value);
+    props.setType(e);
   };
 
   return (
     <div>
-      {" "}
       <Radio.Group onChange={onChange} value={value}>
         <Radio value={1}>수의사</Radio>
         <Radio value={2}>동물 병원 직원</Radio>

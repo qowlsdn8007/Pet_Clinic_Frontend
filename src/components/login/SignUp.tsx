@@ -1,37 +1,35 @@
-import { useState } from "react";
-import { useHistory } from "react-router-dom";
-import { Form, Input, InputNumber, Button } from "antd";
+import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { Button, RadioChangeEvent } from 'antd';
 
-import SignUpType from "./SignUpType";
-import SignUpClient from "./SignUpClient";
+import SignUpType from './SignUpType';
+import SignUpClient from './SignUpClient';
+import SignUpVet from './SignUpVet';
+import SignUpStaff from './SignUpStaff';
 
 function SignUp() {
   const history = useHistory();
 
-  const [step, setStep] = useState<number>(0);
-  const [type, setType] = useState<number>(0); /* 0: Client, 1: Vet, 2: Staff */
+  const [step, setStep] = useState<number>(1);
+  const [type, setType] = useState<number>(1); /* 0: Client, 1: Vet, 2: Staff */
 
-  function onSignUp(form: { id: string; pw: string }): void {
-    console.log(form);
+  function onSignUp(): void {
+    console.log(`Sign Up`);
     // history.push("/") //go To Main Page
   }
 
-  const layout = {
-    labelCol: { span: 8 },
-    wrapperCol: { span: 16 },
-  };
+  function nextStep(e: React.MouseEvent<HTMLElement, MouseEvent>) {
+    step + 1 > 2 ? setStep(step) : setStep(step + 1);
+  }
+  function prevStep(e: React.MouseEvent<HTMLElement, MouseEvent>) {
+    step - 1 < 0 ? setStep(step) : setStep(step - 1);
+  }
 
-  /* eslint-disable no-template-curly-in-string */
-  const validateMessages = {
-    required: "${label} is required!",
-    types: {
-      email: "${label} is not a valid email!",
-      number: "${label} is not a valid number!",
-    },
-    number: {
-      range: "${label} must be between ${min} and ${max}",
-    },
-  };
+  function updateType(e: RadioChangeEvent): number {
+    console.log(`e.target.value: ${e.target.value}`);
+    setType(e.target.value);
+    return e.target.value;
+  }
 
   const onFinish = (values: any) => {
     console.log(values);
@@ -39,11 +37,13 @@ function SignUp() {
 
   return (
     <div>
-      {step == 0 && <SignUpType />}
-      {step == 1 && type == 0 && <SignUpClient />}
-      {step == 1 && type == 1 && <SignUpClient />}
-      {step == 1 && type == 2 && <SignUpClient />}
-      <Button> 다음 👉 </Button>
+      {step == 1 && <SignUpType setType={updateType} />}
+      {step == 2 && type == 1 && <SignUpVet />}
+      {step == 2 && type == 2 && <SignUpStaff />}
+      {step == 2 && type == 3 && <SignUpClient />}
+      {step >= 2 && <Button onClick={prevStep}> 👈 이전 </Button>}
+      {step <= 1 && <Button onClick={nextStep}> 다음 👉 </Button>}
+      {step >= 2 && <Button onClick={onSignUp}> 회원 가입 🙌 </Button>}
     </div>
   );
 }

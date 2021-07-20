@@ -1,10 +1,11 @@
-import React from "react";
-import Home from "./src/components/home/Home";
-import Login from "./src/components/login/Login";
-import SignUp from "./src/components/login/SignUp";
+import React from 'react';
+import Home from './components/home/Home';
+import Login from './components/login/Login';
+import SignUp from './components/login/SignUp';
 
-import "antd/dist/antd.css";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import 'antd/dist/antd.css';
+
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 function App() {
   return (

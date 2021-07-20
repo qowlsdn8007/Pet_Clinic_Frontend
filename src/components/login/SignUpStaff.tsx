@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { useHistory } from "react-router-dom";
-import { Form, Input, InputNumber, Button } from "antd";
+import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { Form, Input, InputNumber, Button } from 'antd';
 
 function SignUp() {
   const history = useHistory();
@@ -16,13 +16,13 @@ function SignUp() {
 
   /* eslint-disable no-template-curly-in-string */
   const validateMessages = {
-    required: "${label} is required!",
+    required: '${label} is required!',
     types: {
-      email: "${label} is not a valid email!",
-      number: "${label} is not a valid number!",
+      email: '${label} is not a valid email!',
+      number: '${label} is not a valid number!',
     },
     number: {
-      range: "${label} must be between ${min} and ${max}",
+      range: '${label} must be between ${min} and ${max}',
     },
   };
 
@@ -31,8 +31,9 @@ function SignUp() {
   };
   return (
     <div>
-      {" "}
-      <Form
+      {' '}
+      SignUp Staff
+      {/* <Form
         {...layout}
         name="nest-messages"
         onFinish={onFinish}
@@ -70,7 +71,7 @@ function SignUp() {
             Submit
           </Button>
         </Form.Item>
-      </Form>
+      </Form> */}
     </div>
   );
 }
