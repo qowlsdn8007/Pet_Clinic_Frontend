@@ -1,7 +1,7 @@
 import React from 'react';
 import Home from './components/home/Home';
 import Login from './components/login/Login';
-import SignUp from './components/login/SignUp';
+import SignUp from './components/login/sign-up/SignUp';
 
 import 'antd/dist/antd.css';
 
