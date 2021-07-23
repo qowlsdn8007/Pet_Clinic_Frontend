@@ -47,11 +47,11 @@ function LoginForm() {
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
         >
-          <Form.Item label="id" name="id" rules={[{ required: true, message: 'id를 입력해주세요!' }]}>
-            <Input />
+          <Form.Item name="id" rules={[{ required: true, message: 'id를 입력해주세요!' }]}>
+            <Input placeholder="아이디" />
           </Form.Item>
-          <Form.Item label="password" name="password" rules={[{ required: true, message: 'password를 입력해주세요!' }]}>
-            <Input.Password />
+          <Form.Item name="password" rules={[{ required: true, message: 'password를 입력해주세요!' }]}>
+            <Input.Password placeholder="비밀번호" />
           </Form.Item>{' '}
           <Form.Item>
             <Radio.Group onChange={onChange} value={value}>

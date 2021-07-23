@@ -20,3 +20,14 @@ display: grid;
     justify-items: center;
     align-items: center;
 }
+
+.buttons{
+    display:flex;
+    justify-content: center;
+}
+
+.button{
+    margin-right: 10px;
+    margin-top:5px;
+
+}

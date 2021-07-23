@@ -9,11 +9,7 @@ import styles from './sign-up.module.css';
 
 const { Search } = Input;
 
-type setProps = {
-  visible: boolean;
-  setVisible: (visible: boolean) => void;
-};
-function SignUpSearchModal(props: setProps) {
+function SignUpSearchModal() {
   const history = useHistory();
 
   const [visible, setVisible] = useState<boolean>(false);
@@ -39,8 +35,10 @@ function SignUpSearchModal(props: setProps) {
   const onSearch = (value: string) => console.log(value);
 
   return (
-    <div>
-      <Button onClick={showModal}>검색</Button>
+    <section>
+      <Button onClick={showModal} className={styles.button}>
+        검색
+      </Button>
       <Modal
         title="병원 검색"
         visible={visible}
@@ -55,7 +53,7 @@ function SignUpSearchModal(props: setProps) {
           </Space>
         </div>
       </Modal>
-    </div>
+    </section>
   );
 }
 

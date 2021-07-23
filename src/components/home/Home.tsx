@@ -14,10 +14,8 @@ function Home() {
   return (
     <div className={styles.main}>
       <div className={styles.content}>
-        <h1>Pet-Clinic</h1>
-
+        <h1>Pet-Clinic 🐶</h1>
         <div className={styles.button_box}>
-          {' '}
           <Button type="primary" htmlType="submit" onClick={goToLogin}>
             로그인
           </Button>

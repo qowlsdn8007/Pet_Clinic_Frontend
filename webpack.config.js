@@ -14,6 +14,7 @@ module.exports = {
 
   ///webpack-dev-server
   devServer: {
+    // host: '0.0.0.0',
     historyApiFallback: true,
     inline: true,
     port: 3000,

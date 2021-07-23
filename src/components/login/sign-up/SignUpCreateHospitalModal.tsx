@@ -6,13 +6,7 @@ import { Modal, Button, Input, Space } from 'antd';
 import SignUpCreateHospitalForm from './SignUpCreateHospitalForm';
 import styles from './sign-up.module.css';
 
-const { Search } = Input;
-
-type setProps = {
-  visible: boolean;
-  setVisible: (visible: boolean) => void;
-};
-function SignUpCreateHospitalModal(props: setProps) {
+function SignUpCreateHospitalModal() {
   const history = useHistory();
 
   const [visible, setVisible] = useState<boolean>(false);
@@ -39,7 +33,9 @@ function SignUpCreateHospitalModal(props: setProps) {
 
   return (
     <div>
-      <Button onClick={showModal}>등록</Button>
+      <Button onClick={showModal} className={styles.button}>
+        등록
+      </Button>
       <Modal
         title="병원 검색"
         visible={visible}

@@ -14,7 +14,7 @@ function SignUp() {
   const [type, setType] = useState<string>('Vet'); /* Client, Vet, Staff */
 
   const layout = {
-    labelCol: { span: 8 },
+    labelCol: { span: 7 },
     wrapperCol: { span: 0 },
   };
 
@@ -53,8 +53,18 @@ function SignUp() {
         {step == 1 && <SignUpUserType setType={updateType} layout={layout} />}
         {step == 2 && <SignUpForm type={type} layout={layout} validateMessages={validateMessages} />}
         <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 0 }}>
-          {step >= 2 && <Button onClick={prevStep}> 👈 이전 </Button>}
-          {step <= 1 && <Button onClick={nextStep}> 다음 👉 </Button>}
+          {step >= 2 && (
+            <Button onClick={prevStep} className={styles.button}>
+              {' '}
+              👈 이전{' '}
+            </Button>
+          )}
+          {step <= 1 && (
+            <Button onClick={nextStep} className={styles.button}>
+              {' '}
+              다음 👉{' '}
+            </Button>
+          )}
           {step >= 2 && (
             <Button onClick={onSignUp} htmlType="submit">
               회원 가입 🙌
