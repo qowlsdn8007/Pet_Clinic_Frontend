@@ -19,9 +19,6 @@ function SignUpForm({ type, layout, validateMessages }: signUpProps) {
   const history = useHistory();
 
   const [visible, setVisible] = useState(false);
-  // const [modalText, setModalText] = useState('Content of the modal');
-
-  /* eslint-disable no-template-curly-in-string */
 
   const onFinish = (values: any) => {
     console.log(values);
@@ -34,6 +31,7 @@ function SignUpForm({ type, layout, validateMessages }: signUpProps) {
           <div>
             <Form.Item name="hospital" label="병원" rules={[{ required: true }]}>
               <Input />
+
               <SignUpSearchModal visible={visible} setVisible={setVisible} />
               {type == 'Vet' && <SignUpCreateHospitalModal visible={visible} setVisible={setVisible} />}
             </Form.Item>
@@ -55,7 +53,7 @@ function SignUpForm({ type, layout, validateMessages }: signUpProps) {
           <Input.Password />
         </Form.Item>
 
-        <Form.Item name="na" label="이름" rules={[{ required: true }]}>
+        <Form.Item name="name" label="이름" rules={[{ required: true }]}>
           <Input />
         </Form.Item>
         <Form.Item

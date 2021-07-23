@@ -4,12 +4,12 @@ import Login from './components/login/Login';
 import SignUp from './components/login/sign-up/SignUp';
 
 import 'antd/dist/antd.css';
-
+import styles from './app.module.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <div>
+    <div className={styles.app}>
       <BrowserRouter>
         <Switch>
           <Route exact path="/">

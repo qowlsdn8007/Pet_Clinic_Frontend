@@ -18,7 +18,7 @@ function SignUpUserType({ setType, layout }: setProps) {
 
   return (
     <div>
-      <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
+      <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 0 }}>
         <Radio.Group onChange={onChange} defaultValue="1" value={value}>
           <Radio value={'Vet'}>수의사</Radio>
           <Radio value={'Staff'}>동물 병원 직원</Radio>

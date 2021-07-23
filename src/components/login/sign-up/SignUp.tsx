@@ -5,6 +5,8 @@ import { Button, RadioChangeEvent, Form } from 'antd';
 import SignUpUserType from './SignUpUserType';
 import SignUpForm from './SignUpForm';
 
+import styles from './sign-up.module.css';
+
 function SignUp() {
   const history = useHistory();
 
@@ -13,7 +15,7 @@ function SignUp() {
 
   const layout = {
     labelCol: { span: 8 },
-    wrapperCol: { span: 16 },
+    wrapperCol: { span: 0 },
   };
 
   const validateMessages = {
@@ -46,18 +48,20 @@ function SignUp() {
   }
 
   return (
-    <div>
-      {step == 1 && <SignUpUserType setType={updateType} layout={layout} />}
-      {step == 2 && <SignUpForm type={type} layout={layout} validateMessages={validateMessages} />}
-      <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
-        {step >= 2 && <Button onClick={prevStep}> 👈 이전 </Button>}
-        {step <= 1 && <Button onClick={nextStep}> 다음 👉 </Button>}
-        {step >= 2 && (
-          <Button onClick={onSignUp} htmlType="submit">
-            회원 가입 🙌
-          </Button>
-        )}
-      </Form.Item>
+    <div className={styles.card}>
+      <div className={styles.sign_up_form}>
+        {step == 1 && <SignUpUserType setType={updateType} layout={layout} />}
+        {step == 2 && <SignUpForm type={type} layout={layout} validateMessages={validateMessages} />}
+        <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 0 }}>
+          {step >= 2 && <Button onClick={prevStep}> 👈 이전 </Button>}
+          {step <= 1 && <Button onClick={nextStep}> 다음 👉 </Button>}
+          {step >= 2 && (
+            <Button onClick={onSignUp} htmlType="submit">
+              회원 가입 🙌
+            </Button>
+          )}
+        </Form.Item>
+      </div>
     </div>
   );
 }

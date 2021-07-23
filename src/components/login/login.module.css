@@ -1,9 +1,4 @@
-@value pet-wheat from "../../../common/colors.css";
-
-.modal {
-display: grid;
-}
-
+@value pet-wheat from "../../common/colors.css";
 
 .card {
  background-color: pet-wheat;
@@ -12,10 +7,9 @@ display: grid;
  align-items: center;
  border-radius: 5%;
  padding: 5%;
- width:50%;
 }
 
-.sign_up_form{
+.login_form{
     text-align: center;
     justify-items: center;
     align-items: center;
