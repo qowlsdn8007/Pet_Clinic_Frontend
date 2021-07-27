@@ -4,34 +4,56 @@ import styles from './medical-history.module.css';
 function MedicalHistoryList() {
   const dataSource = [
     {
-      key: '1',
-      name: 'Mike',
-      age: 32,
-      address: '10 Downing Street',
+      key: 1,
+      date: '2021-07-27',
+      visitor: '이시은',
+      pet: '땡이',
+      vet: '수의사1',
+      reservation_type: '?',
     },
     {
-      key: '2',
-      name: 'John',
-      age: 42,
-      address: '10 Downing Street',
+      key: 2,
+      date: '2021-07-27',
+      visitor: '이시금',
+      pet: '콩이',
+      vet: '수의사2',
+      reservation_type: '?',
+    },
+    {
+      key: 3,
+      date: '2021-07-27',
+      visitor: '이시동',
+      pet: '융아',
+      vet: '수의사2',
+      reservation_type: '?',
     },
   ];
 
   const columns = [
     {
-      title: 'Name',
-      dataIndex: 'name',
-      key: 'name',
+      title: '날짜',
+      dataIndex: 'date',
+      key: 'date',
     },
     {
-      title: 'Age',
-      dataIndex: 'age',
-      key: 'age',
+      title: '방문자',
+      dataIndex: 'visitor',
+      key: 'visitor',
     },
     {
-      title: 'Address',
-      dataIndex: 'address',
-      key: 'address',
+      title: '반려동물',
+      dataIndex: 'pet',
+      key: 'pet',
+    },
+    {
+      title: '진료 수의사',
+      dataIndex: 'vet',
+      key: 'vet',
+    },
+    {
+      title: '예약 종류',
+      dataIndex: 'reservation_type',
+      key: 'reservation_type',
     },
   ];
 

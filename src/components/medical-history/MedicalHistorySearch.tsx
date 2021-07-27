@@ -1,8 +1,9 @@
-import { Form, Input, InputNumber, Button, DatePicker } from 'antd';
+import { Form, Input, InputNumber, Button, DatePicker, Select } from 'antd';
 import moment from 'moment';
 
 function MedicalHistorySearch() {
   const { RangePicker } = DatePicker;
+  const { Option } = Select;
   const layout = {
     labelCol: { span: 8 },
     wrapperCol: { span: 16 },
@@ -19,8 +20,6 @@ function MedicalHistorySearch() {
       range: '${label} must be between ${min} and ${max}',
     },
   };
-
-  const dateFormat = 'YYYY-MM-DD';
 
   const onFinish = (values: any) => {
     console.log(values);
@@ -40,6 +39,26 @@ function MedicalHistorySearch() {
       </Form.Item>
       <Form.Item name="phone">
         <Input placeholder="전화번호 검색" />
+      </Form.Item>
+      <Form.Item>
+        <Select
+          showSearch
+          style={{ width: 200 }}
+          placeholder="타입"
+          optionFilterProp="children"
+          //   filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
+          filterSort={(optionA, optionB) =>
+            optionA.children.toLowerCase().localeCompare(optionB.children.toLowerCase())
+          }
+        >
+          <Option value="1">진단</Option>
+          <Option value="2">식단</Option>
+          <Option value="3">주사</Option>
+          <Option value="4">수술</Option>
+          <Option value="5">X-Ray</Option>
+          <Option value="6">사진</Option>
+          <Option value="6">치아</Option>
+        </Select>
       </Form.Item>
       <Form.Item name="range-picker">
         <RangePicker placeholder={['시작 날짜', '종료 날짜']} />
