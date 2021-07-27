@@ -6,6 +6,7 @@ import SignUp from './components/sign-up/SignUp';
 import 'antd/dist/antd.css';
 import styles from './app.module.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import MedicalHistory from './components/medical-history/MedicalHistory';
 
 function App() {
   return (
@@ -20,6 +21,9 @@ function App() {
           </Route>
           <Route exact path="/sign-up">
             <SignUp></SignUp>
+          </Route>
+          <Route exact path="/medical-history">
+            <MedicalHistory />
           </Route>
         </Switch>
       </BrowserRouter>

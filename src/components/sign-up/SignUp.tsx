@@ -52,17 +52,16 @@ function SignUp() {
       <div className={styles.sign_up_form}>
         {step == 1 && <SignUpUserType setType={updateType} layout={layout} />}
         {step == 2 && <SignUpForm type={type} layout={layout} validateMessages={validateMessages} />}
+
         <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 0 }}>
           {step >= 2 && (
             <Button onClick={prevStep} className={styles.button}>
-              {' '}
-              👈 이전{' '}
+              👈 이전
             </Button>
           )}
           {step <= 1 && (
             <Button onClick={nextStep} className={styles.button}>
-              {' '}
-              다음 👉{' '}
+              다음 👉
             </Button>
           )}
           {step >= 2 && (
