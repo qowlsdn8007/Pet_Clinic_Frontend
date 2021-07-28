@@ -1,0 +1,33 @@
+@value pet-wheat from "../../../common/colors.css";
+
+.modal {
+display: grid;
+}
+
+
+.card {
+ background-color: pet-wheat;
+ text-align: center;
+ justify-items: center;
+ align-items: center;
+ border-radius: 5%;
+ padding: 5%;
+ width:50%;
+}
+
+.sign_up_form{
+    text-align: center;
+    justify-items: center;
+    align-items: center;
+}
+
+.buttons{
+    display:flex;
+    justify-content: center;
+}
+
+.button{
+    margin-right: 10px;
+    margin-top:5px;
+
+}

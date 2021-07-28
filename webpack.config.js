@@ -9,7 +9,7 @@ module.exports = {
   devtool: prod ? 'hidden-source-map' : 'eval',
   entry: './src/index.tsx',
   resolve: {
-    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.css'],
   },
 
   ///webpack-dev-server
@@ -29,7 +29,7 @@ module.exports = {
         use: ['babel-loader', 'ts-loader'],
       },
       {
-        test: /\.(css)$/, // 순수한 CSS 파일과 구분하고 싶다면 pcss를 사용해도 좋다. 대개 그냥 .css 확장자를 사용한다.
+        test: /\.css$/,
         use: [
           'style-loader',
           {
@@ -55,7 +55,7 @@ module.exports = {
   },
 
   plugins: [
-	new webpack.ProvidePlugin({
+    new webpack.ProvidePlugin({
       React: 'react',
     }),
     new HtmlWebpackPlugin({
@@ -64,4 +64,3 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(), // 핫팩 설정
   ],
 };
-
