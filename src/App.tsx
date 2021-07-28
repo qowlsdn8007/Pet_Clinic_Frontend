@@ -1,5 +1,5 @@
 import React from "react";
-
-const App = () => <>init</>;
+import Router from "./routes/router";
+const App = () => <><Router /></>;
 
 export default App;

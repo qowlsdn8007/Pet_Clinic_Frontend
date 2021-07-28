@@ -14,6 +14,7 @@ module.exports = {
 
   ///webpack-dev-server
   devServer: {
+      host: "0.0.0.0",   // 다른 로컬 네트워크에서 연결하고플 때, default는 127.0.0.1
       historyApiFallback: true,
       inline: true,
       port: 3000,
@@ -29,7 +30,21 @@ module.exports = {
       },
       {
         test: /\.(css)$/, // 순수한 CSS 파일과 구분하고 싶다면 pcss를 사용해도 좋다. 대개 그냥 .css 확장자를 사용한다.
-        use: ["style-loader", "css-loader"],
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+            },
+          },
+        ],
+        include: /\.module\.css$/,
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+        exclude: /\.module\.css$/,
       },
     ],
   },
