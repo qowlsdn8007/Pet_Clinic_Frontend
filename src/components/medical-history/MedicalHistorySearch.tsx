@@ -1,38 +1,27 @@
 import { Form, Input, InputNumber, Button, DatePicker, Select } from 'antd';
 import moment from 'moment';
 
-function MedicalHistorySearch() {
+type searchProps = {
+  onSearch: (value: Object) => void;
+  validateMessages: Object;
+};
+function MedicalHistorySearch({ onSearch, validateMessages }: searchProps) {
   const { RangePicker } = DatePicker;
   const { Option } = Select;
-  const layout = {
-    labelCol: { span: 8 },
-    wrapperCol: { span: 16 },
-  };
-
-  /* eslint-disable no-template-curly-in-string */
-  const validateMessages = {
-    required: '${label} is required!',
-    types: {
-      email: '${label} is not a valid email!',
-      number: '${label} is not a valid number!',
-    },
-    number: {
-      range: '${label} must be between ${min} and ${max}',
-    },
-  };
 
   const onFinish = (values: any) => {
     console.log(values);
+    onSearch(values);
   };
 
   return (
     <Form name="nest-messages" onFinish={onFinish} validateMessages={validateMessages}>
       <Form.Item name="label">의료 기록 검색</Form.Item>
-      <Form.Item name="client">
-        <Input placeholder="보호자 이름 검색" />
-      </Form.Item>
       <Form.Item name="pet">
         <Input placeholder="반려동물 이름 검색" />
+      </Form.Item>
+      <Form.Item name="client">
+        <Input placeholder="보호자 이름 검색" />
       </Form.Item>
       <Form.Item name="vet">
         <Input placeholder="수의사 이름 검색" />
@@ -40,7 +29,7 @@ function MedicalHistorySearch() {
       <Form.Item name="phone">
         <Input placeholder="전화번호 검색" />
       </Form.Item>
-      <Form.Item>
+      <Form.Item name="type">
         <Select
           showSearch
           style={{ width: 200 }}
@@ -51,13 +40,13 @@ function MedicalHistorySearch() {
             optionA.children.toLowerCase().localeCompare(optionB.children.toLowerCase())
           }
         >
-          <Option value="1">진단</Option>
-          <Option value="2">식단</Option>
-          <Option value="3">주사</Option>
-          <Option value="4">수술</Option>
-          <Option value="5">X-Ray</Option>
-          <Option value="6">사진</Option>
-          <Option value="6">치아</Option>
+          <Option value="dignoses">진단</Option>
+          <Option value="diet">식단</Option>
+          <Option value="injections">주사</Option>
+          <Option value="surgery">수술</Option>
+          <Option value="x-ray">X-Ray</Option>
+          <Option value="photos">사진</Option>
+          <Option value="dental">치아</Option>
         </Select>
       </Form.Item>
       <Form.Item name="range-picker">

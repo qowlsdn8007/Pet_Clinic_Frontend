@@ -11,3 +11,16 @@
     width:60%;
     margin:30px;
 }
+
+.add_form{
+    float: right;
+    padding-bottom: 10px;
+   
+}
+
+.modal{
+    padding:10px;
+    display: flex;
+    align-content: center;
+    justify-content: center;    
+}
