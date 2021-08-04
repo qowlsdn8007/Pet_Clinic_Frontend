@@ -1,28 +1,25 @@
 import * as React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import ShowClientPage from '../Components/Hospital/showClientPage';
-import { MainPage } from '../Components/Hospital/mainPage';
-import CreateGroupPage from '../Components/Hospital/createGroupPage';
-import GroupDetailPage from '../Components/Hospital/groupDetailPage';
-import Home from '../Components/SignIn&Up/home/Home';
-import Login from '../Components/SignIn&Up/login/Login';
-import SignUp from '../Components/SignIn&Up/sign-up/SignUp';
+import Home from '../components/home/Home';
+import Login from '../components/SignIn&Up/login/Login';
+import SignUp from '../components/SignIn&Up/sign-up/SignUp';
+import styles from './router.module.css';
+import HospitalSubRouter from './subRoutes/ClinicSubRouter';
+import ClientSubRouter from './subRoutes/ClientSubRouter';
+
 
 const Router: React.FC = () => (
-    <BrowserRouter>
+    <BrowserRouter >
         <Switch>
-            <Route path="/"><Home /></Route>
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/sign-up">
-                <SignUp></SignUp>
-            </Route>
-        </Switch>
-        {/*
-        <Route path="/ShowClient" exact component={ShowClientPage} />
-        <Route path="/CreateGroup" exact component={CreateGroupPage} />
-        <Route path="/GroupDetail" exact component={GroupDetailPage} />
-        */}
-    </BrowserRouter>
+            <div className={styles.router}>
+                <Route exact path="/"><Home /> </Route>
+                <Route exact path="/login"> <Login /> </Route>
+                <Route exact path="/sign-up"> <SignUp /> </Route>
+                <HospitalSubRouter />
+                <ClientSubRouter />
+            </div>
+        </Switch >
+    </BrowserRouter >
 )
 
 export default Router;

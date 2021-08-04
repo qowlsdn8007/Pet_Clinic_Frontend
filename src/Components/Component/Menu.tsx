@@ -4,8 +4,13 @@ import { MenuOutlined } from '@ant-design/icons';
 import 'antd/dist/antd.css';
 import { useHistory } from 'react-router-dom';
 
+interface Props {
+    menu: string[];
+    link: string[];
+}
 
-const Menu: React.FC = () => {
+
+const Menu: React.FC<Props> = (props: Props) => {
     const history = useHistory();
     const [visible, setVisible] = useState(false);
     const showDrawer = () => {
@@ -14,6 +19,8 @@ const Menu: React.FC = () => {
     const onClose = () => {
         setVisible(false);
     };
+
+
     return (
         <>
             <MenuOutlined style={{ margin: 10, fontSize: 30 }} onClick={showDrawer} />
@@ -27,13 +34,7 @@ const Menu: React.FC = () => {
                 onClose={onClose}
                 visible={visible}
             >
-                <p>홈</p>
-                <p onClick={() => history.push("/ShowClient")}>고객과 반려동물</p>
-                <p>의료 기록</p>
-                <p>일정 관리</p>
-                <p>시설 관리</p>
-                <p>결제 관리</p>
-                <p>메타사전</p>
+                {props.menu.map(m => <p onClick={() => history.push(props.link[props.menu.indexOf(m)])}>{m}</p>)}
             </Drawer>
         </>
     );

@@ -24,6 +24,8 @@ interface DataType {
     address: string;
 }
 
+
+/////////////////// 더미
 const data: DataType[] = [
     {
         key: '1',
@@ -50,7 +52,7 @@ const data: DataType[] = [
         address: 'Sidney No. 1 Lake Park',
     },
 ];
-
+////////////////////////
 
 const GroupDetailPage: React.FC = () => {
     const [DetailModal, setDetailModal] = useState(false);

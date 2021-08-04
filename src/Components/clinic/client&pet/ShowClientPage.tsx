@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { Table, Radio, Divider, Button } from 'antd';
+import { Table, Button } from 'antd';
 import { useHistory } from 'react-router-dom';
+import { ClinicPath } from '../../component/Path';
 
 const columns = [
     {
@@ -55,26 +56,21 @@ const data: DataType[] = [
 
 const ShowClientPage: React.FC = () => {
     const history = useHistory();
+    const findUser = ["보호자 이름 검색", "반려동물 이름 검색", "전화번호 검색", "방문 날짜 검색"];
+
     return <>
         <div style={{ paddingTop: 200 }}>
             <div>
-                <Button onClick={() => history.push("/CreateGroup")} shape="round" style={{ float: "right", marginBottom: 300 }}>New</Button>
+                <Button onClick={() => history.push(ClinicPath + "/CreateGroup")} shape="round" style={{ float: "right", marginBottom: 300 }}>New</Button>
             </div>
             <div>
                 <div style={{ display: "inline-grid", marginLeft: 400 }}>
-                    <Button shape="round" style={{ marginBottom: 5 }}>그룹 이름 검색</Button>
-                    <Button shape="round" style={{ marginBottom: 5 }}>보호자 이름 검색</Button>
-                    <Button shape="round" style={{ marginBottom: 5 }}>반려동물 이름 검색</Button>
-                    <Button shape="round" style={{ marginBottom: 5 }}>전화번호 검색</Button>
-                    <Button shape="round" style={{ marginBottom: 5 }}>방문 날짜 검색</Button>
+                    {findUser.map(m => <Button shape="round" style={{ marginBottom: 5 }}>{m}</Button>)}
                 </div>
-                <div style={{ float: "right", width: "70%" }}>
-                    <Table
-                        style={{ paddingLeft: 100, marginRight: 200 }}
-                        columns={columns}
-                        dataSource={data}
-                    />
-                </div>
+                <Table
+                    columns={columns}
+                    dataSource={data}
+                />
             </div>
         </div>
     </>
