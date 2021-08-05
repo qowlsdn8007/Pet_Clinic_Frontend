@@ -14,12 +14,12 @@ module.exports = {
 
   ///webpack-dev-server
   devServer: {
-    // host: '0.0.0.0',
-    historyApiFallback: true,
-    inline: true,
-    port: 3000,
-    hot: true,
-    publicPath: '/',
+      host: "0.0.0.0",   // 다른 로컬 네트워크에서 연결하고플 때, default는 127.0.0.1
+      historyApiFallback: true,
+      inline: true,
+      port: 3000,
+      hot: true,
+      publicPath: '/',
   },
 
   module: {

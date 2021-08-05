@@ -1,4 +1,4 @@
-@value pet-wheat from "../../common/colors.css";
+@value pet-wheat from "../../../common/colors.css";
 
 .card {
  background-color: pet-wheat;

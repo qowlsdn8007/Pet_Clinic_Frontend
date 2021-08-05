@@ -13,6 +13,7 @@ type historyData = {
   vet: string;
   reservation_type: string;
 };
+
 function MedicalHistory() {
   const [list, setList] = useState<Object[] | undefined>(undefined);
   // const medicalHistoryRepository = new MedicalHistoryRepository();
