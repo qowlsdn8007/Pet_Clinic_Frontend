@@ -2,7 +2,6 @@ import * as React from 'react';
 import Menu from '../../component/Menu';
 import { useHistory } from 'react-router-dom';
 import { ClinicPath } from '../../component/Path';
-import styles from './mainpage.module.css';
 
 export const MainPage: React.FC = () => {
     const history = useHistory();
@@ -10,7 +9,7 @@ export const MainPage: React.FC = () => {
     const link: string[] = [ClinicPath, ClinicPath + "/ShowClient"];
 
     return <>
-        <div className={styles.menu}>
+        <div>
             <Menu menu={menu} link={link} />
         </div>
         <div >
