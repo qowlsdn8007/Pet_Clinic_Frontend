@@ -1,0 +1,18 @@
+*{
+    box-sizing: border-box;
+}
+
+
+.box{
+    border: 2px groove gray;
+    padding: 100px;
+}
+
+.mypetdetail{
+    /* widows:100%; */
+    height:100vh;
+    width:100%;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+}

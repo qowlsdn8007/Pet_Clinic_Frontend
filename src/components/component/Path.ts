@@ -1,2 +1,2 @@
-export const ClinicPath: string = '/clinic';
-export const ClientPath: string = '/client';
+export const ClinicPath: string = `/clinic`;
+export const ClientPath: string = `/client`;

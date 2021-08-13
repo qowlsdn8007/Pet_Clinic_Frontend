@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import Login from 'src/components/sign-in-up/login/Login';
-import SignUp from 'src/components/sign-in-up/sign-up/SignUp';
-const ClinicSubRouter: React.FC = () => {
+import Login from '../../components/sign-in-up/login/Login';
+import SignUp from '../../components/sign-in-up/sign-up/SignUp';
+const CommonRouter: React.FC = () => {
   return (
     <>
       <Route exact path={'/login'}>
@@ -15,4 +15,4 @@ const ClinicSubRouter: React.FC = () => {
   );
 };
 
-export default ClinicSubRouter;
+export default CommonRouter;
